@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Select a Subject</h1>
+        <div class="subjects">
+            <button class="btn subject-btn" data-subject="DBMS1">DBMS Quiz 1</button>
+            <button class="btn subject-btn" data-subject="computerArchitecture">Computer Architecture</button>
+            <button class="btn subject-btn" data-subject="compArchitecture19">CSC211 2019Exams</button>
+            <button class="btn subject-btn" data-subject="csc211Quiz1">CSC211 Quiz1</button>
+            <button class="btn subject-btn" data-subject="CSC211">Yale CSC211 MCQs</button>
+            <!-- <button class="btn subject-btn" data-subject="science">CSC211 2019Exams</button> -->
+        </div>
+        <div class="timed-option">
+            <input type="checkbox" id="timed-checkbox">
+            <label for="timed-checkbox">Timed Quiz</label>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.subject-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const subject = button.getAttribute('data-subject');
+                
+                const isTimed = document.getElementById('timed-checkbox').checked;
+                localStorage.setItem('selectedSubject', subject);
+                localStorage.setItem('isTimed', isTimed);
+
+                localStorage.removeItem('currentQuestionIndex');
+                localStorage.removeItem('score');
+                localStorage.removeItem('timeLeft');
+                
+                window.location.href = 'quiz.html';
+            });
+        });
+    </script>
+</body>
+</html>
