@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App - Select Subject</title>
+    <title>Quiz App - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="app">
-        <h1>Select a Subject</h1>
-        <h2 id="selected-level"></h2>
-        <div id="subjects-container">
-            <div class="subjects" id="subjects-list">
-                <!-- Subjects will be dynamically added here -->
-            </div>
-            <p id="no-subjects-feedback" style="display: none; color: red;">No questions available for this level yet.</p>
-        </div>
-        <div class="timed-option">
-            <input type="checkbox" id="timed-checkbox">
-            <label for="timed-checkbox">Timed Quiz</label>
+        <h1>Select Your Level</h1>
+        <div class="levels">
+            <button class="btn level-btn" data-level="L100">L100</button>
+            <button class="btn level-btn" data-level="L200">L200</button>
+            <button class="btn level-btn" data-level="L300">L300</button>
+            <button class="btn level-btn" data-level="L400">L400</button>
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script src="script1.js"></script>
+    <script>
+        document.querySelectorAll('.level-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const level = button.getAttribute('data-level');
+                localStorage.setItem('selectedLevel', level);
+                window.location.href = 'subjects.html'; // Redirect to subjects page
+            });
+        });
+    </script>
 </body>
 </html>

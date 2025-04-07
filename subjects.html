@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Select Subject</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <h1>Select a Subject</h1>
+        <h2 id="selected-level"></h2>
+        <div id="subjects-container">
+            <div class="subjects" id="subjects-list">
+                <!-- Subjects will be dynamically added here -->
+            </div>
+            <p id="no-subjects-feedback" style="display: none; color: red;">No questions available for this level yet.</p>
+        </div>
+        <div class="timed-option">
+            <input type="checkbox" id="timed-checkbox">
+            <label for="timed-checkbox">Timed Quiz</label>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="script1.js"></script>
+</body>
+</html>
